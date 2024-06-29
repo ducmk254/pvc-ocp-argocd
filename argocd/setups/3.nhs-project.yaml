@@ -2,12 +2,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: application
+  name: nhs
   labels:
     gitops.tier.layer: infra
 spec:
   sourceRepos: ["https://github.com/ducmk254/pvc-ocp-argocd.git"] # Populated by kustomize patches in 1-infra/kustomization.yaml
-  destinations:
+  destinations: # list of namespace on nhs project
   - namespace: test
     server: https://kubernetes.default.svc
   clusterResourceWhitelist:
