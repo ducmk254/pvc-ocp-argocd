@@ -11,42 +11,17 @@ spec:
   - namespace: test
     server: https://kubernetes.default.svc
   clusterResourceWhitelist:
-  - group: "storage.k8s.io"
-    kind: CSIDriver
-  - group: "storage.k8s.io"
-    kind: StorageClass
-  - group: ""
-    kind: Namespace
-  - group: ""
-    kind: RoleBinding
+  # TODO: SCC needs to be moved to 1-infra, here for now pipeline sa for buildah
+  - group: "security.openshift.io"
+    kind: SecurityContextConstraints
   - group: "rbac.authorization.k8s.io"
     kind: ClusterRole
   - group: "rbac.authorization.k8s.io"
     kind: ClusterRoleBinding
-  - group: "security.openshift.io"
-    kind: SecurityContextConstraints
-  - group: policy
-    kind: PodSecurityPolicy
-  - group: "console.openshift.io"
-    kind: ConsoleNotification
-  - group: "console.openshift.io"
-    kind: ConsoleLink
-  - group: "machine.openshift.io"
-    kind: MachineSet
-  - group: "machineconfiguration.openshift.io"
-    kind: MachineConfigPool
-  - group: "machineconfiguration.openshift.io"
-    kind: ContainerRuntimeConfig
-  - group: "tuned.openshift.io"
-    kind: Tuned
-  - group: "batch"
-    kind: Job
-  - group: "apps.gitlab.com"
-    kind: runners
   - group: "route.openshift.io"
     kind: routes
-  - group: "logging.openshift.io"
-    kind: clusterlogforwarders
+  - group: "monitoring.coreos.com"
+    kind: servicemonitors
   roles:
   # A role which provides read-only access to all applications in the project
   - name: read-only
