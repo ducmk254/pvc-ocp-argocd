@@ -8,7 +8,7 @@ metadata:
 spec:
   sourceRepos: [] # Populated by kustomize patches in 1-infra/kustomization.yaml
   destinations:
-  - namespace: test
+  - namespace: infra
     server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   - group: "storage.k8s.io"
