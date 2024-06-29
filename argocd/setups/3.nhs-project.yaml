@@ -7,7 +7,6 @@ metadata:
     gitops.tier.layer: infra
 spec:
   sourceRepos: ["https://github.com/ducmk254/pvc-ocp-argocd.git"] # Populated by kustomize patches in 1-infra/kustomization.yaml
-  scopedRepos: ["https://github.com/ducmk254/pvc-ocp-argocd.git"]
   destinations: # list of namespace on nhs project
   - namespace: qlts
     server: https://kubernetes.default.svc
